@@ -37,8 +37,7 @@ namespace SalesSystem
                 }
                 else if (user.Role == "Seller")
                 {
-                    var sellerForm = new SellerForm();
-                    sellerForm.Show();
+                    
                 }
 
                 this.Hide(); // Oculta el formulario de login
