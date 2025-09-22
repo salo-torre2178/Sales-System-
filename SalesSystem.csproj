@@ -52,9 +52,6 @@
     <Compile Include="DAL\BaseDAL.cs" />
     <Compile Include="DAL\ProductDAL.cs" />
     <Compile Include="DAL\UserDAL.cs" />
-    <Compile Include="DTOs\User\AuthenticatedUserDTO.cs" />
-    <Compile Include="DTOs\User\UserDTO.cs" />
-    <Compile Include="DTOs\User\UserLoginDTO.cs" />
     <Compile Include="Entities\Product.cs" />
     <Compile Include="Entities\Sale.cs" />
     <Compile Include="Entities\SaleDetail.cs" />
