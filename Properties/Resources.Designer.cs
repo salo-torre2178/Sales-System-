@@ -133,6 +133,16 @@ namespace SalesSystem.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Cantidad {
+            get {
+                object obj = ResourceManager.GetObject("Cantidad", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Cerrar_Sesion {
             get {
                 object obj = ResourceManager.GetObject("Cerrar Sesion", resourceCulture);
@@ -193,16 +203,6 @@ namespace SalesSystem.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Editar1 {
-            get {
-                object obj = ResourceManager.GetObject("Editar1", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap Editaraside1 {
             get {
                 object obj = ResourceManager.GetObject("Editaraside1", resourceCulture);
@@ -246,6 +246,26 @@ namespace SalesSystem.Properties {
         internal static System.Drawing.Bitmap Eliminar {
             get {
                 object obj = ResourceManager.GetObject("Eliminar", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Id_producto {
+            get {
+                object obj = ResourceManager.GetObject("Id producto", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Id_vendedor {
+            get {
+                object obj = ResourceManager.GetObject("Id vendedor", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -323,6 +343,16 @@ namespace SalesSystem.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Precio_producto {
+            get {
+                object obj = ResourceManager.GetObject("Precio producto", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Productaside1 {
             get {
                 object obj = ResourceManager.GetObject("Productaside1", resourceCulture);
@@ -353,16 +383,6 @@ namespace SalesSystem.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Productos1 {
-            get {
-                object obj = ResourceManager.GetObject("Productos1", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap Registro_Usuario {
             get {
                 object obj = ResourceManager.GetObject("Registro Usuario", resourceCulture);
@@ -376,6 +396,36 @@ namespace SalesSystem.Properties {
         internal static System.Drawing.Bitmap Rol_Usuario {
             get {
                 object obj = ResourceManager.GetObject("Rol Usuario", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Salesaside1 {
+            get {
+                object obj = ResourceManager.GetObject("Salesaside1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Salesaside2 {
+            get {
+                object obj = ResourceManager.GetObject("Salesaside2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Selleraside1 {
+            get {
+                object obj = ResourceManager.GetObject("Selleraside1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

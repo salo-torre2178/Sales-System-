@@ -1,6 +1,7 @@
 ﻿using SalesSystem.BLL;
 using SalesSystem.Entities;
 using SalesSystem.UI;
+using SalesSystem.UI.Seller; // 👈 importa el namespace donde está SellerForm
 using System;
 using System.Windows.Forms;
 
@@ -16,7 +17,6 @@ namespace SalesSystem
             userBLL = new UserBLL();
         }
 
-        //Un comentario
         private void btnLogin_Click(object sender, EventArgs e)
         {
             string email = txtEmail.Text.Trim();
@@ -29,15 +29,22 @@ namespace SalesSystem
                 MessageBox.Show($"Welcome {user.FullName}! Your role is {user.Role}.",
                                 "Login Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                // Determinar el rol del usuario para redirigir al respectivo formulario
+                // 🔹 Determinar el rol del usuario para redirigir al respectivo formulario
                 if (user.Role == "Administrator")
                 {
                     var adminForm = new AdminForm();
                     adminForm.Show();
                 }
-                else if (user.Role == "Seller")
+                else if (user.Role == "Seller" || user.Role == "Vendedor")
                 {
-                    
+                    // 👇 pasamos el rol al SellerForm
+                    var sellerForm = new SellerForm(user.Role);
+                    sellerForm.Show();
+                }
+                else
+                {
+                    MessageBox.Show("Rol no reconocido. Contacta con el administrador.",
+                                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
 
                 this.Hide(); // Oculta el formulario de login

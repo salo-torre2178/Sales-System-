@@ -81,5 +81,10 @@ namespace SalesSystem.UI.Products
             this.Close();                                // cierra EditProduct
             productForm.Show();
         }
+
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

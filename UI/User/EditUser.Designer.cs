@@ -237,17 +237,8 @@
             this.button1.TabIndex = 27;
             this.button1.UseVisualStyleBackColor = false;
             // 
-            // pictureBox12
-            // 
-            this.pictureBox12.BackColor = System.Drawing.Color.White;
-            this.pictureBox12.Image = global::SalesSystem.Properties.Resources.Editar1;
-            this.pictureBox12.Location = new System.Drawing.Point(316, 543);
-            this.pictureBox12.Name = "pictureBox12";
-            this.pictureBox12.Size = new System.Drawing.Size(52, 39);
-            this.pictureBox12.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox12.TabIndex = 39;
-            this.pictureBox12.TabStop = false;
-            // 
+            
+          
             // pictureBox11
             // 
             this.pictureBox11.BackColor = System.Drawing.Color.White;
