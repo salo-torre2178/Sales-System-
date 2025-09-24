@@ -1,9 +1,10 @@
-﻿using System;
+﻿using SalesSystem.DTOs.Product;
+using SalesSystem.DTOs.User;
+using SalesSystem.Entities;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data.SqlClient;
-using SalesSystem.DTOs.User;
-using SalesSystem.Entities;
 
 namespace SalesSystem.DAL
 {
@@ -119,13 +120,13 @@ namespace SalesSystem.DAL
         }
 
         // Eliminar producto
-        public void DeleteProduct(DeleteUserDTO id)
+        public void DeleteProduct(DeleteProductDTO product)
         {
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
                 string query = "DELETE FROM Product WHERE ProductID=@ProductID";
                 SqlCommand cmd = new SqlCommand(query, conn);
-                cmd.Parameters.AddWithValue("@ProductID", id);
+                cmd.Parameters.AddWithValue("@ProductID", product.ProductID);
 
                 conn.Open();
                 cmd.ExecuteNonQuery();

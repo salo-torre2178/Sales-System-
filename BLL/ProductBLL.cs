@@ -1,5 +1,6 @@
 ﻿using SalesSystem.DAL;
-using SalesSystem.DTOs.User;
+using SalesSystem.DTOs;
+using SalesSystem.DTOs.Product;
 using SalesSystem.Entities;
 using System;
 using System.Collections.Generic;
@@ -55,11 +56,11 @@ namespace SalesSystem.BLL
             productDAL.UpdateProduct(product);
         }
 
-        public void DeleteProduct(DeleteUserDTO id)
+        public void DeleteProduct(DeleteProductDTO ID)
         {
             try
             {
-                productDAL.DeleteProduct(id);
+                productDAL.DeleteProduct(ID);
             }
             catch (SqlException ex) when (ex.Number == 547) // Clave foránea violada
             {

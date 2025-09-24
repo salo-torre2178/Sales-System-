@@ -1,4 +1,5 @@
 ﻿using SalesSystem.BLL;
+using SalesSystem.DTOs.Product;
 using SalesSystem.DTOs.User;
 using SalesSystem.Entities;
 using SalesSystem.UI.Products;
@@ -97,7 +98,7 @@ namespace SalesSystem.UI
                 int productID = Convert.ToInt32(dataGridView1.CurrentRow.Cells["ProductID"].Value);
 
                 // DTO para encapsular la eliminación
-                DeleteUserDTO user = new DeleteUserDTO(productID);
+                DeleteProductDTO product = new DeleteProductDTO(productID);
 
                 DialogResult result = MessageBox.Show(
                     "¿Estás seguro de que deseas eliminar este registro?",
@@ -107,7 +108,7 @@ namespace SalesSystem.UI
 
                 if (result == DialogResult.Yes)
                 {
-                    productBLL.DeleteProduct(user);
+                    productBLL.DeleteProduct(product);
 
                     MessageBox.Show("✅ Producto eliminado correctamente.", "Éxito",
                         MessageBoxButtons.OK, MessageBoxIcon.Information);
