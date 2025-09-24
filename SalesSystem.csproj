@@ -59,6 +59,8 @@
     <Compile Include="DAL\UserDAL.cs" />
     <Compile Include="DTOs\User\AddUserDTO.cs" />
     <Compile Include="DTOs\User\DeleteUserDTO.cs" />
+    <Compile Include="DTOs\User\EditUserResponseDTO.cs" />
+    <Compile Include="DTOs\User\UpdateUserDTO.cs" />
     <Compile Include="DTOs\User\UserLoginDTO.cs" />
     <Compile Include="DTOs\User\UserLoginResponseDTO.cs" />
     <Compile Include="Entities\Product.cs" />
