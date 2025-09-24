@@ -33,6 +33,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="Microsoft.VisualStudio.DebuggerVisualizers, Version=17.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
@@ -47,11 +49,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BLL\NavigationBLL.cs" />
     <Compile Include="BLL\ProductBLL.cs" />
+    <Compile Include="BLL\SaleBLL.cs" />
     <Compile Include="BLL\UserBLL.cs" />
     <Compile Include="DAL\BaseDAL.cs" />
     <Compile Include="DAL\ProductDAL.cs" />
+    <Compile Include="DAL\SaleDAL.cs" />
     <Compile Include="DAL\UserDAL.cs" />
+    <Compile Include="DTOs\User\AddUserDTO.cs" />
+    <Compile Include="DTOs\User\UserLoginDTO.cs" />
+    <Compile Include="DTOs\User\UserLoginResponseDTO.cs" />
     <Compile Include="Entities\Product.cs" />
     <Compile Include="Entities\Sale.cs" />
     <Compile Include="Entities\SaleDetail.cs" />
@@ -93,6 +101,30 @@
     <Compile Include="UI\Product\ProductForm.Designer.cs">
       <DependentUpon>ProductForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Sales\Addsales.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Sales\Addsales.Designer.cs">
+      <DependentUpon>Addsales.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Sales\EditSales.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Sales\EditSales.Designer.cs">
+      <DependentUpon>EditSales.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Sales\SalesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Sales\SalesForm.Designer.cs">
+      <DependentUpon>SalesForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Seller\SellerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Seller\SellerForm.Designer.cs">
+      <DependentUpon>SellerForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\User\AddUser.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -131,6 +163,18 @@
     <EmbeddedResource Include="UI\Product\ProductForm.resx">
       <DependentUpon>ProductForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\Sales\Addsales.resx">
+      <DependentUpon>Addsales.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Sales\EditSales.resx">
+      <DependentUpon>EditSales.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Sales\SalesForm.resx">
+      <DependentUpon>SalesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Seller\SellerForm.resx">
+      <DependentUpon>SellerForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\User\AddUser.resx">
       <DependentUpon>AddUser.cs</DependentUpon>
     </EmbeddedResource>
@@ -154,7 +198,13 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="gitignore.txt" />
+    <None Include="Resources\Precio producto.jpeg" />
+    <None Include="Resources\Cantidad.jpeg" />
+    <None Include="Resources\Id producto.jpeg" />
+    <None Include="Resources\Id vendedor.jpeg" />
+    <None Include="Resources\Salesaside2.jpeg" />
+    <None Include="Resources\Salesaside1.jpeg" />
+    <None Include="Resources\Selleraside1.jpeg" />
     <None Include="Resources\Usuario 4.jpeg" />
     <None Include="Resources\Usuario 3.jpeg" />
     <None Include="Resources\Rol Usuario.jpeg" />
@@ -191,8 +241,6 @@
     <None Include="Resources\Ingreso.jpeg" />
     <None Include="Resources\Usuario.jpeg" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="UI\Seller\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

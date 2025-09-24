@@ -1,4 +1,5 @@
 ﻿
+using SalesSystem.UI.Sales;
 using SalesSystem.UI.User;
 using System;
 using System.Collections.Generic;
@@ -47,6 +48,22 @@ namespace SalesSystem.UI
             UserForm userForm = new UserForm(this);
             this.Hide();
             userForm.Show();
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            // Abrimos el formulario de ventas con el rol "Administrador"
+            SalesForm salesForm = new SalesForm("Administrator");
+            salesForm.Show();
+
+            // Ocultamos el AdminForm mientras tanto
+            this.Hide();
+
         }
     }
 }

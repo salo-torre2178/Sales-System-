@@ -68,33 +68,29 @@ namespace SalesSystem.DAL
         }
 
         // Obetner producto por su ID
-        public Product GetProductById(int id)
+        public Product GetProductById(int productId)
         {
-            Product product = null;
-
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
-                string query = "SELECT ProductID, ProductName, Description, Price, IsActive FROM Product WHERE ProductID = @ProductID";
+                string query = "SELECT ProductID, ProductName, Price FROM Product WHERE ProductID = @ProductID";
                 SqlCommand cmd = new SqlCommand(query, conn);
-                cmd.Parameters.AddWithValue("@ProductID", id);
+                cmd.Parameters.AddWithValue("@ProductID", productId);
 
                 conn.Open();
-                SqlDataReader reader = cmd.ExecuteReader();
-
-                if (reader.Read())
+                using (SqlDataReader reader = cmd.ExecuteReader())
                 {
-                    product = new Product
+                    if (reader.Read())
                     {
-                        ProductID = (int)reader["ProductID"],
-                        ProductName = reader["ProductName"].ToString(),
-                        Description = reader["Description"]?.ToString(),
-                        Price = (decimal)reader["Price"],
-                        IsActive = (bool)reader["IsActive"]
-                    };
+                        return new Product
+                        {
+                            ProductID = (int)reader["ProductID"],
+                            ProductName = reader["ProductName"].ToString(),
+                            Price = (decimal)reader["Price"]
+                        };
+                    }
                 }
             }
-
-            return product;
+            return null; // si no existe
         }
 
         // Actualizar producto

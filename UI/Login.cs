@@ -1,6 +1,8 @@
 ﻿using SalesSystem.BLL;
+using SalesSystem.DTOs.User;
 using SalesSystem.Entities;
 using SalesSystem.UI;
+using SalesSystem.UI.Seller; // 👈 importa el namespace donde está SellerForm
 using System;
 using System.Windows.Forms;
 
@@ -9,43 +11,36 @@ namespace SalesSystem
     public partial class Login : Form
     {
         private readonly UserBLL userBLL;
+        private readonly NavigationBLL navigationBLL;
 
         public Login()
         {
             InitializeComponent();
             userBLL = new UserBLL();
+            navigationBLL = new NavigationBLL();
         }
 
-        //Un comentario
         private void btnLogin_Click(object sender, EventArgs e)
         {
             string email = txtEmail.Text.Trim();
             string password = txtPassword.Text.Trim();
 
+            UserLoginDTO userLoginDTO = new UserLoginDTO(email,password);
+
             try
             {
-                User user = userBLL.Login(email, password);
+                UserLoginResponseDTO user = userBLL.Login(userLoginDTO);
 
-                MessageBox.Show($"Welcome {user.FullName}! Your role is {user.Role}.",
-                                "Login Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(userBLL.GetWelcomeMessage(user));
 
-                // Determinar el rol del usuario para redirigir al respectivo formulario
-                if (user.Role == "Administrator")
-                {
-                    var adminForm = new AdminForm();
-                    adminForm.Show();
-                }
-                else if (user.Role == "Seller")
-                {
-                    
-                }
+                Form form = navigationBLL.ShowFormByRole(user);
 
-                this.Hide(); // Oculta el formulario de login
+                form.Show();
+                this.Hide(); 
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Login failed: " + ex.Message,
-                                "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error", ex.Message);
             }
         }
     }

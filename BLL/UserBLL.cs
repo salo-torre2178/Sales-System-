@@ -1,7 +1,11 @@
 ﻿using SalesSystem.DAL;
+using SalesSystem.DTOs.User;
 using SalesSystem.Entities;
+using SalesSystem.UI;
+using SalesSystem.UI.Seller;
 using System;
 using System.Collections.Generic;
+using System.Windows.Forms;
 
 namespace SalesSystem.BLL
 {
@@ -15,16 +19,38 @@ namespace SalesSystem.BLL
             userDAL = new UserDAL();
         }
 
-        public User Login(string email, string password)
+        public UserLoginResponseDTO Login(UserLoginDTO userLogin)
         {
-            var user = userDAL.Login(email, password);
-
-            if (user == null)
+            if (userLogin == null || string.IsNullOrWhiteSpace(userLogin.Email) || string.IsNullOrWhiteSpace(userLogin.Password))
             {
-                throw new Exception("Credenciales inválidas o rol no autorizado");
+                throw new Exception("Debe completar todos los campos.");
             }
 
-            return user;
+            try
+            {
+                UserLoginResponseDTO user = userDAL.Login(userLogin);
+
+                if (user == null)
+                {
+                    throw new Exception("Credenciales inválidas o rol no autorizado.");
+                }
+
+                return user;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Ha ocurrido un error al intentar iniciar sesión.", ex);
+            }
+        }
+
+        public string GetWelcomeMessage(UserLoginResponseDTO user)
+        {
+            if (user == null)
+            {
+                throw new Exception("El usuario es nulo");
+            }
+
+            return $"¡Bienvenido {user.Name}! Tu rol es {user.Role}.";
         }
 
         public List<User> GetAll()
@@ -38,7 +64,7 @@ namespace SalesSystem.BLL
             return filasAfectadas;
         }
 
-        public void Add(User user)
+        public void Add(AddUserDTO user)
         {
             userDAL.Add(user);
         }
@@ -52,9 +78,5 @@ namespace SalesSystem.BLL
         {
             userDAL.Update(user);
         }
-
-
-
-
     }
 }

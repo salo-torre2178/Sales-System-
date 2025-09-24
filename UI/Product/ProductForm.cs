@@ -1,6 +1,7 @@
 ﻿using SalesSystem.BLL;
-using SalesSystem.Entities;   // Aquí está tu Product entity
+using SalesSystem.Entities;
 using SalesSystem.UI.Products;
+using SalesSystem.UI.Seller;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
@@ -10,9 +11,9 @@ namespace SalesSystem.UI
     public partial class ProductForm : Form
     {
         private readonly ProductBLL productBLL;
-        private AdminForm _adminForm; // nueva referencia al AdminForm
+        private AdminForm _adminForm;
+        private string _role;
 
-        // Constructor original
         public ProductForm()
         {
             InitializeComponent();
@@ -20,19 +21,41 @@ namespace SalesSystem.UI
             LoadProducts();
         }
 
-        // Nuevo constructor que recibe el AdminForm
+        // Constructor con rol
+        public ProductForm(string role)
+        {
+            InitializeComponent();
+            productBLL = new ProductBLL();
+            LoadProducts();
+            _role = role;
+
+            // 👇 si el rol es vendedor, ocultamos botones e íconos
+            if (_role == "Seller" || _role == "Vendedor")
+            {
+                btnAdd.Visible = false;
+                btnEdit.Visible = false;
+                btnDelete.Visible = false;
+
+                // oculta los íconos asociados
+                pictureBox3.Visible = false;
+                pictureBox4.Visible = false;
+                pictureBox5.Visible = false;
+            }
+        }
+
         public ProductForm(AdminForm adminForm)
         {
             InitializeComponent();
             productBLL = new ProductBLL();
             LoadProducts();
-            _adminForm = adminForm; // guardamos la referencia
+            _adminForm = adminForm;
+            _role = "Admin";
         }
 
         private void LoadProducts()
         {
             List<Product> products = productBLL.GetAllProducts();
-            dataGridView1.DataSource = null; // resetear en caso de recarga
+            dataGridView1.DataSource = null;
             dataGridView1.DataSource = products;
 
             dataGridView1.Columns["ProductID"].HeaderText = "ID";
@@ -55,8 +78,8 @@ namespace SalesSystem.UI
             {
                 int productID = Convert.ToInt32(dataGridView1.CurrentRow.Cells["ProductID"].Value);
                 EditProduct editProduct = new EditProduct(productID);
-                this.Close();
                 editProduct.Show();
+                this.Close();
             }
         }
 
@@ -75,23 +98,27 @@ namespace SalesSystem.UI
                 {
                     productBLL.DeleteProduct(productID);
                     this.Close();
-                    ProductForm productForm = new ProductForm();
+                    ProductForm productForm = new ProductForm(_role);
                     productForm.Show();
                 }
             }
         }
 
-
         private void btnBack_Click_1(object sender, EventArgs e)
         {
-            AdminForm admin = new AdminForm();
-            this.Close();
-            admin.Show();
+            if (_role == "Seller" || _role == "Vendedor")
+            {
+                SellerForm seller = new SellerForm(_role); // 👈 aquí pasamos el rol
+                seller.Show();
+                this.Close();
+            }
+            else
+            {
+                AdminForm admin = new AdminForm();
+                admin.Show();
+                this.Close();
+            }
         }
 
-        private void pictureBox4_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

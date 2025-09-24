@@ -1,4 +1,5 @@
 ﻿using SalesSystem.BLL;
+using SalesSystem.DTOs.User;
 using SalesSystem.Entities;
 using System;
 using System.Windows.Forms;
@@ -29,7 +30,7 @@ namespace SalesSystem.UI.User
         {
             try
             {
-                SalesSystem.Entities.User nuevo = new SalesSystem.Entities.User
+                AddUserDTO user = new AddUserDTO
                 {
                     FullName = txtName.Text,
                     IdentityNumber = long.Parse(txtidentity.Text),
@@ -41,7 +42,7 @@ namespace SalesSystem.UI.User
                     RegistrationDate = DateTime.Now
                 };
 
-                userBLL.Add(nuevo);
+                userBLL.Add(user);
 
                 MessageBox.Show("Usuario agregado correctamente ✅");
 
