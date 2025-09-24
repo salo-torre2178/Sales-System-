@@ -57,6 +57,7 @@
     <Compile Include="DAL\ProductDAL.cs" />
     <Compile Include="DAL\SaleDAL.cs" />
     <Compile Include="DAL\UserDAL.cs" />
+    <Compile Include="DTOs\Product\DeleteProductDTO.cs" />
     <Compile Include="DTOs\User\AddUserDTO.cs" />
     <Compile Include="DTOs\User\DeleteUserDTO.cs" />
     <Compile Include="DTOs\User\EditUserResponseDTO.cs" />
