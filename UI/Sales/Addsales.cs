@@ -159,15 +159,21 @@ namespace SalesSystem.UI.Sales
             }
         }
 
+        private SalesForm salesForm;
 
+        public Addsales(SalesForm form)
+        {
+            InitializeComponent();
+            saleBLL = new SaleBLL();
+            details = new List<SaleDetail>();
+            productBLL = new ProductBLL();
+            salesForm = form;
+        }
 
-
-
-
-        // 🔹 Botón Atrás
-        //private void btnBack_Click(object sender, EventArgs e)
-        //{
-        //this.Close(); // al cerrarse, vuelve a SalesForm
-        //}
+        private void btnBack_Click_1(object sender, EventArgs e)
+        {
+            this.Close();      // cierra Addsales
+            salesForm.Show();  // vuelve al SalesForm
+        }
     }
 }

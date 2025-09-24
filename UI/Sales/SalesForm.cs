@@ -25,17 +25,16 @@ namespace SalesSystem.UI.Sales
 
             if (userRole == "Administrator")
             {
-                // 🔹 Solo eliminar visible
+                // Solo eliminar visible
+
                 btnAdd.Visible = false;
                 pictureBox3.Visible = false;
-
-                btnEdit.Visible = false;
-                pictureBox4.Visible = false;
 
                 btnDelete.Visible = true;
                 pictureBox5.Visible = true;
 
-                // 🔹 Centrar botón eliminar con su icono
+                // Centrar botón eliminar con su icono
+
                 int totalWidth = pictureBox5.Width + 5 + btnDelete.Width;
                 int startX = (this.ClientSize.Width - totalWidth) / 2;
 
@@ -44,33 +43,28 @@ namespace SalesSystem.UI.Sales
             }
             else if (userRole == "Seller")
             {
-                // 🔹 Mostrar agregar y editar
+                // Mostrar agregar y editar
+
                 btnAdd.Visible = true;
                 pictureBox3.Visible = true;
-
-                btnEdit.Visible = true;
-                pictureBox4.Visible = true;
 
                 btnDelete.Visible = false;
                 pictureBox5.Visible = false;
 
                 // 🔹 Centrar agregar y editar
-                int totalWidth = pictureBox3.Width + btnAdd.Width + 20 + pictureBox4.Width + btnEdit.Width;
+                int totalWidth = pictureBox3.Width + btnAdd.Width;
                 int startX = (this.ClientSize.Width - totalWidth) / 2;
 
                 pictureBox3.Left = startX;
                 btnAdd.Left = pictureBox3.Right + 5;
 
-                pictureBox4.Left = btnAdd.Right + 20;
-                btnEdit.Left = pictureBox4.Right + 5;
             }
             else
             {
                 // Ningún permiso
+
                 btnAdd.Visible = false;
                 pictureBox3.Visible = false;
-                btnEdit.Visible = false;
-                pictureBox4.Visible = false;
                 btnDelete.Visible = false;
                 pictureBox5.Visible = false;
             }
@@ -117,46 +111,22 @@ namespace SalesSystem.UI.Sales
             addForm.ShowDialog();
         }
 
-        // 🔹 Abrir EditSales
-        private void btnEdit_Click(object sender, EventArgs e)
-        {
-            if (dataGridView1.CurrentRow != null)
-            {
-                int saleId = (int)dataGridView1.CurrentRow.Cells["SaleID"].Value;
-
-                EditSales editForm = new EditSales(saleId); // 🔹 aquí sí le pasamos el ID
-                // si después necesitas pasar el ID, puedes modificar el constructor de EditSales
-                editForm.FormClosed += (s, args) => LoadSales();
-                editForm.ShowDialog();
-            }
-            else
-            {
-                MessageBox.Show("Seleccione una venta para editar.");
-            }
-        }
-
+       
         private void btnAdd_Click_1(object sender, EventArgs e)
         {
-            Addsales addForm = new Addsales();
-            addForm.FormClosed += (s, args) => LoadSales(); // recarga al cerrar
-            addForm.ShowDialog();
+
+            Addsales addForm = new Addsales(this); 
+            this.Hide();                           
+            addForm.FormClosed += (s, args) =>
+            {
+                this.Show();    
+                LoadSales();    // recarga el datagrid view 
+            };
+            addForm.Show();
+
         }
 
-        private void btnEdit_Click_1(object sender, EventArgs e)
-        {
-            if (dataGridView1.CurrentRow != null)
-            {
-                int saleId = (int)dataGridView1.CurrentRow.Cells["SaleID"].Value;
-
-                EditSales editForm = new EditSales(saleId);  // 👈 ahora sí pasa el ID
-                editForm.FormClosed += (s, args) => LoadSales();
-                editForm.ShowDialog();
-            }
-            else
-            {
-                MessageBox.Show("Seleccione una venta para editar.");
-            }
-        }
+        
 
         private void btnBack_Click(object sender, EventArgs e)
         {

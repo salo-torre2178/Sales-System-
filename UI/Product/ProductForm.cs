@@ -126,12 +126,11 @@ namespace SalesSystem.UI
             }
         }
 
-
         private void btnBack_Click_1(object sender, EventArgs e)
         {
             if (_role == "Seller" || _role == "Vendedor")
             {
-                SellerForm seller = new SellerForm(_role); // 👈 aquí pasamos el rol
+                SellerForm seller = new SellerForm(_role); // Aquí pasamos el rol
                 seller.Show();
                 this.Close();
             }

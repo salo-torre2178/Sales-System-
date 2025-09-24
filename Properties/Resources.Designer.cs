@@ -73,6 +73,26 @@ namespace SalesSystem.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Addaside1 {
+            get {
+                object obj = ResourceManager.GetObject("Addaside1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Addaside2 {
+            get {
+                object obj = ResourceManager.GetObject("Addaside2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Adminaside1 {
             get {
                 object obj = ResourceManager.GetObject("Adminaside1", resourceCulture);
@@ -136,6 +156,16 @@ namespace SalesSystem.Properties {
         internal static System.Drawing.Bitmap Cantidad {
             get {
                 object obj = ResourceManager.GetObject("Cantidad", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Cantidad_Producto {
+            get {
+                object obj = ResourceManager.GetObject("Cantidad Producto", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -246,6 +276,16 @@ namespace SalesSystem.Properties {
         internal static System.Drawing.Bitmap Eliminar {
             get {
                 object obj = ResourceManager.GetObject("Eliminar", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Guardar {
+            get {
+                object obj = ResourceManager.GetObject("Guardar", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -373,6 +413,16 @@ namespace SalesSystem.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Producto_Compra {
+            get {
+                object obj = ResourceManager.GetObject("Producto Compra", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Productos {
             get {
                 object obj = ResourceManager.GetObject("Productos", resourceCulture);
@@ -436,6 +486,16 @@ namespace SalesSystem.Properties {
         internal static System.Drawing.Bitmap Telefono_Usuario {
             get {
                 object obj = ResourceManager.GetObject("Telefono Usuario", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Total {
+            get {
+                object obj = ResourceManager.GetObject("Total", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

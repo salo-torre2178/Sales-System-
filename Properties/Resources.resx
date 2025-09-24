@@ -121,6 +121,9 @@
   <data name="Nombre producto" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Nombre producto.jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Producto Compra" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Producto Compra.jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Usuario" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Usuario.jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -160,8 +163,8 @@
   <data name="Editar" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Editar.jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Id vendedor" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Id vendedor.jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Total" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Total.jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Lista productos" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Lista productos.jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -184,14 +187,23 @@
   <data name="Usuario 4" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Usuario 4.jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Cantidad Producto" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Cantidad Producto.jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Identidad Usuario" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Identidad Usuario.jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Id producto" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Id producto.jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Precio producto" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Precio producto.jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Salesaside1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Salesaside1.jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Id vendedor" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Id vendedor.jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Selleraside1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Selleraside1.jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -201,6 +213,9 @@
   </data>
   <data name="Editaraside11" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Editaraside1.jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Atras 2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Atras 2.jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Descripcion" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Descripcion.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -232,8 +247,11 @@
   <data name="Usuario 1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Usuario 1.jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Atras 2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Atras 2.jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Guardar" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Guardar.jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Addaside1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Addaside1.jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Telefono Usuario" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Telefono Usuario.jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -250,7 +268,7 @@
   <data name="Productos" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Productos.jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Precio producto" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Precio producto.jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Addaside2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Addaside2.jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

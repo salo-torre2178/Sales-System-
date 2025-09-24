@@ -108,12 +108,6 @@
     <Compile Include="UI\Sales\Addsales.Designer.cs">
       <DependentUpon>Addsales.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Sales\EditSales.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UI\Sales\EditSales.Designer.cs">
-      <DependentUpon>EditSales.cs</DependentUpon>
-    </Compile>
     <Compile Include="UI\Sales\SalesForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -166,9 +160,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Sales\Addsales.resx">
       <DependentUpon>Addsales.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UI\Sales\EditSales.resx">
-      <DependentUpon>EditSales.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Sales\SalesForm.resx">
       <DependentUpon>SalesForm.cs</DependentUpon>
@@ -242,6 +233,23 @@
     <None Include="Resources\Ingreso.jpeg" />
     <None Include="Resources\Usuario.jpeg" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\Producto Compra.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Cantidad Producto.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Total.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Guardar.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Addaside1.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Addaside2.jpeg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -28,5 +28,17 @@ namespace SalesSystem.UI.Seller
             productForm.Show();
             this.Hide();
         }
+
+        private void btnLogOut_Click(object sender, EventArgs e)
+        {
+          
+            this.Hide();
+
+            // Abre el login
+
+            Login loginForm = new Login();
+            loginForm.FormClosed += (s, args) => this.Close(); 
+            loginForm.Show();
+        }
     }
 }
