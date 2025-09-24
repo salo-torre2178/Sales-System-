@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data.SqlClient;
+using SalesSystem.DTOs.User;
 using SalesSystem.Entities;
 
 namespace SalesSystem.DAL
@@ -118,7 +119,7 @@ namespace SalesSystem.DAL
         }
 
         // Eliminar producto
-        public void DeleteProduct(int id)
+        public void DeleteProduct(DeleteUserDTO id)
         {
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
@@ -130,5 +131,7 @@ namespace SalesSystem.DAL
                 cmd.ExecuteNonQuery();
             }
         }
+
+
     }
 }

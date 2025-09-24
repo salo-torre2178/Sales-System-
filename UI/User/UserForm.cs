@@ -1,4 +1,5 @@
 ﻿using SalesSystem.BLL;
+using SalesSystem.DTOs.User;
 using SalesSystem.UI.User;
 using System;
 using System.Windows.Forms;
@@ -74,6 +75,8 @@ namespace SalesSystem.UI
             {
                 int userId = Convert.ToInt32(dataGridView1.CurrentRow.Cells["UserID"].Value);
 
+                DeleteUserDTO user = new DeleteUserDTO(userId);
+
                 DialogResult result = MessageBox.Show(
                     "¿Estás seguro de que deseas eliminar este usuario?",
                     "Confirmar eliminación",
@@ -85,7 +88,7 @@ namespace SalesSystem.UI
                 {
                     try
                     {
-                        int filasAfectadas =  userBLL.DeleteUser(userId);
+                        int filasAfectadas =  userBLL.DeleteUser(user);
                         
                         if(filasAfectadas > 0)
                         {

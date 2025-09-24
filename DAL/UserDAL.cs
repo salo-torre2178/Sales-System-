@@ -77,7 +77,7 @@ namespace SalesSystem.DAL
             return users;
         }
 
-        public int Delete(int userId)
+        public int Delete(DeleteUserDTO userId)
         {
             try
             {

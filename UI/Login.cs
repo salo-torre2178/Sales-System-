@@ -2,7 +2,7 @@
 using SalesSystem.DTOs.User;
 using SalesSystem.Entities;
 using SalesSystem.UI;
-using SalesSystem.UI.Seller; // 👈 importa el namespace donde está SellerForm
+using SalesSystem.UI.Seller; 
 using System;
 using System.Windows.Forms;
 

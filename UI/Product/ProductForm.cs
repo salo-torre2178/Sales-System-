@@ -1,4 +1,5 @@
 ﻿using SalesSystem.BLL;
+using SalesSystem.DTOs.User;
 using SalesSystem.Entities;
 using SalesSystem.UI.Products;
 using SalesSystem.UI.Seller;
@@ -82,12 +83,22 @@ namespace SalesSystem.UI
                 this.Close();
             }
         }
-
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            if (dataGridView1.CurrentRow != null)
+            if (dataGridView1.CurrentRow == null)
+            {
+                MessageBox.Show("⚠️ Debes seleccionar un producto para eliminar.", "Advertencia",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            try
             {
                 int productID = Convert.ToInt32(dataGridView1.CurrentRow.Cells["ProductID"].Value);
+
+                // DTO para encapsular la eliminación
+                DeleteUserDTO user = new DeleteUserDTO(productID);
+
                 DialogResult result = MessageBox.Show(
                     "¿Estás seguro de que deseas eliminar este registro?",
                     "Confirmar eliminación",
@@ -96,13 +107,25 @@ namespace SalesSystem.UI
 
                 if (result == DialogResult.Yes)
                 {
-                    productBLL.DeleteProduct(productID);
+                    productBLL.DeleteProduct(user);
+
+                    MessageBox.Show("✅ Producto eliminado correctamente.", "Éxito",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    // Refrescar formulario
                     this.Close();
                     ProductForm productForm = new ProductForm(_role);
                     productForm.Show();
                 }
             }
+            catch (Exception ex)
+            {
+                // El mensaje viene ya tratado desde el BLL
+                MessageBox.Show(ex.Message, "Error al eliminar",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
+
 
         private void btnBack_Click_1(object sender, EventArgs e)
         {

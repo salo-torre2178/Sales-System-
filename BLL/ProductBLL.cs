@@ -1,7 +1,9 @@
 ﻿using SalesSystem.DAL;
+using SalesSystem.DTOs.User;
 using SalesSystem.Entities;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 
 namespace SalesSystem.BLL
 {
@@ -53,9 +55,21 @@ namespace SalesSystem.BLL
             productDAL.UpdateProduct(product);
         }
 
-        public void DeleteProduct(int id)
+        public void DeleteProduct(DeleteUserDTO id)
         {
-            productDAL.DeleteProduct(id);
+            try
+            {
+                productDAL.DeleteProduct(id);
+            }
+            catch (SqlException ex) when (ex.Number == 547) // Clave foránea violada
+            {
+                throw new Exception("⚠️ No se puede eliminar el producto porque tiene ventas asociadas.", ex);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Ocurrió un error al intentar eliminar el producto.", ex);
+            }
         }
+
     }
 }
