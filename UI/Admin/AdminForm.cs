@@ -57,7 +57,7 @@ namespace SalesSystem.UI
 
         private void button2_Click(object sender, EventArgs e)
         {
-            // Abrimos el formulario de ventas con el rol "Administrador"
+
             SalesForm salesForm = new SalesForm("Administrator");
             salesForm.Show();
 
