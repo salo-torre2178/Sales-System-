@@ -77,7 +77,7 @@ namespace SalesSystem.DAL
             return users;
         }
 
-        public int Delete(DeleteUserDTO userId)
+        public int Delete(DeleteUserDTO user)
         {
             try
             {
@@ -85,17 +85,17 @@ namespace SalesSystem.DAL
                 {
                     string query = "DELETE FROM [User] WHERE UserID = @UserID";
                     SqlCommand cmd = new SqlCommand(query, conn);
-                    cmd.Parameters.AddWithValue("@UserID", userId);
+                    cmd.Parameters.AddWithValue("@UserID", user.UserID); // 🔹 aquí el valor, no el objeto
 
                     conn.Open();
                     int filasAfectadas = cmd.ExecuteNonQuery();
                     return filasAfectadas;
-
                 }
             }
-
             catch (Exception ex)
             {
+                // si quieres, loggea el error para depuración
+                Console.WriteLine("Error en Delete: " + ex.Message);
                 return 0;
             }
         }
@@ -134,9 +134,9 @@ namespace SalesSystem.DAL
         }
 
 
-        public User GetById(int userId)
+        public EditUserResponseDTO GetById(int userId)
         {
-            User user = null;
+            EditUserResponseDTO user = null;
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
                 string query = "SELECT * FROM [User] WHERE UserID = @UserID";
@@ -148,7 +148,7 @@ namespace SalesSystem.DAL
 
                 if (reader.Read())
                 {
-                    user = new User
+                    user = new EditUserResponseDTO
                     {
                         UserID = (int)reader["UserID"],
                         FullName = reader["FullName"].ToString(),
@@ -165,7 +165,7 @@ namespace SalesSystem.DAL
             return user;
         }
 
-        public void Update(User user)
+        public void Update(UpdateUserDTO user)
         {
             using (SqlConnection conn = new SqlConnection(connectionString))
             {

@@ -1,8 +1,7 @@
 ﻿using SalesSystem.BLL;
-using SalesSystem.Entities;
+using SalesSystem.DTOs.User; 
 using System;
 using System.Windows.Forms;
-using UserEntity = SalesSystem.Entities.User;
 
 namespace SalesSystem.UI.User
 {
@@ -10,10 +9,8 @@ namespace SalesSystem.UI.User
     {
         private readonly UserBLL userBLL;
         private readonly int userId;
-        private UserEntity userToEdit;
-        private UserForm userForm; // referencia al formulario padre
+        private readonly UserForm userForm;
 
-        // Constructor recibe también el UserForm
         public EditUser(int id, UserForm form)
         {
             InitializeComponent();
@@ -21,18 +18,17 @@ namespace SalesSystem.UI.User
             userId = id;
             userForm = form;
 
-            // Cargar datos del usuario seleccionado
-            userToEdit = userBLL.GetById(userId);
-
-            if (userToEdit != null)
+            // Cargar datos del usuario
+            var user = userBLL.GetById(userId); // Aquí sigues usando la entidad para leer
+            if (user != null)
             {
-                txtName.Text = userToEdit.FullName;
-                txtidentity.Text = userToEdit.IdentityNumber.ToString();
-                txtphone.Text = userToEdit.Phone;
-                txtaddress.Text = userToEdit.Address;
-                txtemail.Text = userToEdit.Email;
-                txtpassword.Text = userToEdit.PasswordHash;
-                cmbrole.SelectedItem = userToEdit.Role;
+                txtName.Text = user.FullName;
+                txtidentity.Text = user.IdentityNumber.ToString();
+                txtphone.Text = user.Phone;
+                txtaddress.Text = user.Address;
+                txtemail.Text = user.Email;
+                txtpassword.Text = user.PasswordHash;
+                cmbrole.SelectedItem = user.Role;
             }
         }
 
@@ -40,30 +36,35 @@ namespace SalesSystem.UI.User
         {
             try
             {
-                userToEdit.FullName = txtName.Text;
-                userToEdit.IdentityNumber = long.Parse(txtidentity.Text);
-                userToEdit.Phone = txtphone.Text;
-                userToEdit.Address = txtaddress.Text;
-                userToEdit.Email = txtemail.Text;
-                userToEdit.PasswordHash = txtpassword.Text;
-                userToEdit.Role = cmbrole.SelectedItem.ToString();
+                var updateDto = new UpdateUserDTO
+                {
+                    UserID = userId,
+                    FullName = txtName.Text,
+                    IdentityNumber = long.Parse(txtidentity.Text),
+                    Phone = txtphone.Text,
+                    Address = txtaddress.Text,
+                    Email = txtemail.Text,
+                    PasswordHash = txtpassword.Text,
+                    Role = cmbrole.SelectedItem?.ToString()
+                };
 
-                userBLL.UpdateUser(userToEdit);
+                userBLL.UpdateUser(updateDto);
 
-                MessageBox.Show("Usuario actualizado correctamente.");
+                MessageBox.Show("✅ Usuario actualizado correctamente.");
                 this.DialogResult = DialogResult.OK;
                 this.Close();
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al actualizar usuario: " + ex.Message);
+                MessageBox.Show("Error al actualizar usuario: " + ex.Message, "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
         private void btnBack_Click(object sender, EventArgs e)
         {
-            this.Close();        // Cierra EditUser
-            userForm?.Show();    // Muestra UserForm si existe referencia
+            this.Close();
+            userForm?.Show();
         }
     }
 }

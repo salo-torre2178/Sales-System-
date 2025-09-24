@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace SalesSystem.DTOs.User
 {
-    public class DeleteUserDTO
-    {
-        public int Id { get; set; }
-
-        public DeleteUserDTO(int ID)
+        public class DeleteUserDTO
         {
-            Id = ID;
-        }
-    }
+            public int UserID { get; set; }
+
+            public DeleteUserDTO(int userId)
+            {
+                UserID = userId;
+            }
+       }
 }

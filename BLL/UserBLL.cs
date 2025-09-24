@@ -69,14 +69,23 @@ namespace SalesSystem.BLL
             userDAL.Add(user);
         }
 
-        public User GetById(int id)
+        public EditUserResponseDTO GetById(int id)
         {
             return userDAL.GetById(id);
         }
 
-        public void UpdateUser(User user)
+        public void UpdateUser(UpdateUserDTO userDto)
         {
-            userDAL.Update(user);
+            if (userDto == null) throw new ArgumentNullException(nameof(userDto));
+
+            // Aquí puedes poner validaciones de negocio
+            if (string.IsNullOrWhiteSpace(userDto.FullName))
+                throw new Exception("El nombre no puede estar vacío.");
+
+            // Llamada al DAL
+            var userDAL = new UserDAL();
+            userDAL.Update(userDto);
         }
+
     }
 }
